@@ -1,4 +1,4 @@
-export class Customer {
+export class CustomerDTO {
     #id
     #name
     #phone

@@ -1,2 +1,2 @@
 import {customerDB} from "../DB/CustomerDB";
-import {Customer} from "../Model/Customer";
+import {CustomerDTO} from "../DTO/CustomerDTO";
