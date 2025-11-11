@@ -39,7 +39,7 @@ export class CustomerDTO {
         this.#phone=phone;
     }
     setEmail(email){
-        this.#email;
+        this.#email=email;
     }
     setAddress(address){
         this.#address=address;
