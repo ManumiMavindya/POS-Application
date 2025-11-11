@@ -46,11 +46,22 @@ $(document).on("click", "#cusSave", function (){
     let address = $('#inputAddress').val();
 
     if (name === '' || contact === '' || email === '' || address === ''){
-        alert('please fill the all values');
+
+        Swal.fire({
+            icon: 'warning',
+            title: 'Oops...',
+            text: 'Please fill all the fields!',
+        });
         return;
     }
 
     customerDB.push(new CustomerDTO(generateId(), name, contact, email, address));
+
+    Swal.fire({
+        title: "Customer saved successfully!!",
+        icon: "success"
+    });
+
     loadTable();
 
 });
