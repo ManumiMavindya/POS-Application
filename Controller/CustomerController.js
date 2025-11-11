@@ -35,6 +35,7 @@ const loadTable = () => {
 };
 
 // ============================== Save Customer (button)================================================
+
 let selectedCustomerId = undefined;
 let customerId = undefined;
 
@@ -69,6 +70,7 @@ $(document).on("click", "#cusSave", function (){
 
 
 });
+
 // ============================== Select Customer from Table ==============================
 
 $(document).on("click", "#cusTable tr", function() {
@@ -87,7 +89,6 @@ $(document).on("click", "#cusTable tr", function() {
     $(this).addClass("table-primary").siblings().removeClass("table-primary");
 
 });
-
 
 // ============================== Update Customer ========================================================
 
