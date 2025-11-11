@@ -35,7 +35,7 @@ const loadTable = () => {
 };
 
 // ============================== Save Customer (button)================================================
-
+let selectedCustomerId = undefined;
 let customerId = undefined;
 
 $(document).on("click", "#cusSave", function (){
@@ -58,12 +58,87 @@ $(document).on("click", "#cusSave", function (){
     customerDB.push(new CustomerDTO(generateId(), name, contact, email, address));
 
     Swal.fire({
-        title: "Customer saved successfully!!",
+        title: "Saved!",
+        text:"Customer Saved Successfully.",
         icon: "success"
     });
 
     loadTable();
+    /*========== Clear text fields ============*/
+    $('#inputName, #inputContact, #inputEmail, #inputAddress').val('');
+
+
+});
+// ============================== Select Customer from Table ==============================
+
+$(document).on("click", "#cusTable tr", function() {
+    let id = $(this).children("td:eq(0)").text(); // Get ID from first column
+    let customer = customerDB.find(c => c.getId() === id);
+
+    if (customer) {
+        selectedCustomerId = id; // Save selected customer ID
+        $('#inputName').val(customer.getName());
+        $('#inputContact').val(customer.getPhone());
+        $('#inputEmail').val(customer.getEmail());
+        $('#inputAddress').val(customer.getAddress());
+    }
+
+    // Optional: highlight selected row
+    $(this).addClass("table-primary").siblings().removeClass("table-primary");
 
 });
 
 
+// ============================== Update Customer ========================================================
+
+$(document).on("click", "#cusUpdate", function() {
+    if (!selectedCustomerId) {
+        Swal.fire('Error', 'Please select a customer to update!', 'error');
+        return;
+    }
+
+    let name = $('#inputName').val().trim();
+    let contact = $('#inputContact').val().trim();
+    let email = $('#inputEmail').val().trim();
+    let address = $('#inputAddress').val().trim();
+
+    if (!name || !contact || !email || !address){
+        Swal.fire('Warning', 'Please fill all fields!', 'warning');
+        return;
+    }
+
+    let customer = customerDB.find(c => c.getId() === selectedCustomerId);
+    customer.setName(name);
+    customer.setPhone(contact);
+    customer.setEmail(email);
+    customer.setAddress(address);
+
+    Swal.fire('Updated!', 'Customer details updated.', 'success');
+    loadTable();
+
+    $('#inputName, #inputContact, #inputEmail, #inputAddress').val('');
+    selectedCustomerId = undefined;
+});
+
+// ============================== Delete Customer ========================================================
+
+$(document).on("click", "#cusDelete", function() {
+    let id = $(this).data('id');
+
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "This customer will be deleted permanently!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'Cancel'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            customerDB.splice(customerDB.findIndex(c => c.getId() === id), 1);
+            loadTable();
+            Swal.fire('Deleted!', 'Customer has been deleted.', 'success');
+        }
+        $('#inputName, #inputContact, #inputEmail, #inputAddress').val('');
+
+    });
+});
