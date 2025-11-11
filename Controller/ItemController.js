@@ -70,7 +70,7 @@ $(document).on("click", "#itemSave", function (){
 
 });
 
-// ============================== Select Customer from Table ==============================
+// ============================== Select Item from Table ==============================
 
 $(document).on("click", "#itemTable tr", function() {
     let id = $(this).children("td:eq(0)").text(); // Get ID from first column
@@ -89,7 +89,7 @@ $(document).on("click", "#itemTable tr", function() {
 
 });
 
-// ============================== Update Customer ========================================================
+// ============================== Update Item ========================================================
 
 $(document).on("click", "#itemUpdate", function() {
     if (!selectedItemId) {
@@ -120,7 +120,7 @@ $(document).on("click", "#itemUpdate", function() {
     selectedItemId = undefined;
 });
 
-// ============================== Delete Customer ========================================================
+// ============================== Delete Item ========================================================
 
 $(document).on("click", "#itemDelete", function() {
     let id = $(this).data('id');
@@ -144,7 +144,7 @@ $(document).on("click", "#itemDelete", function() {
     });
 });
 
-// ============================== Search Customer ==============================
+// ============================== Search Item ==============================
 
 $(document).on("click", "#itemSearch", function() {
     let searchText = $('#itemSearchInput').val().trim().toLowerCase();
