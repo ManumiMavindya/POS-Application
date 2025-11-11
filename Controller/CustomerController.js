@@ -37,7 +37,6 @@ const loadTable = () => {
 // ============================== Save Customer (button)================================================
 
 let selectedCustomerId = undefined;
-let customerId = undefined;
 
 $(document).on("click", "#cusSave", function (){
 
