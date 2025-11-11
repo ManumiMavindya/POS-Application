@@ -16,71 +16,128 @@
 
 <ul class="nav p-3" style="background-color: hotpink">
     <li class="nav-item">
-        <a class="nav-link active text-white " aria-current="page" href="#"><img src="assest/images/dashboardimg.png" alt="dashboard" width="20px"> Dashboard</a>
+        <a class="nav-link active text-white " aria-current="page" href="#" id="navDashboard"><img src="assest/images/dashboardimg.png" alt="dashboard" width="20px"> Dashboard</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-white " href="#"><img src="assest/images/customerimg.png" alt="customer" width="20px"> Customer</a>
+        <a class="nav-link text-white " href="#" id="navCustomer" ><img src="assest/images/customerimg.png" alt="customer" width="20px"> Customer</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-white" href="#"><img src="assest/images/itemimg.png" alt="item" width="20px"> Item</a>
+        <a class="nav-link text-white" href="#" id="navItem"><img src="assest/images/itemimg.png" alt="item" width="20px"> Item</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-white " href="#"><img src="assest/images/orderimg.png" alt="order" width="20px"> Order</a>
+        <a class="nav-link text-white " href="#" id="navOrder"><img src="assest/images/orderimg.png" alt="order" width="20px"> Order</a>
     </li>
 </ul>
 
-<!--================================== Customer Form ======================================-->
+<section id="CustomerPage" style="display: none">
+    <!--================================== Customer Form ======================================-->
 
-<form class="row g-3 m-5">
-    <div class="col-md-6">
-        <label for="inputName" class="form-label">Name</label>
-        <input type="text" class="form-control" id="inputName" placeholder="Test">
-    </div>
-    <div class="col-md-6">
-        <label for="inputContact" class="form-label">Phone</label>
-        <input type="number" class="form-control" id="inputContact" placeholder="0771234567">
-    </div>
-    <div class="col-12">
-        <label for="inputEmail" class="form-label">Email</label>
-        <input type="email" class="form-control" id="inputEmail" placeholder="Test@gmail.com">
-    </div>
-    <div class="col-12">
-        <label for="inputAddress" class="form-label">Address</label>
-        <input type="text" class="form-control" id="inputAddress" placeholder="Galle">
-    </div>
-
-    <div class="col-12 d-flex justify-content-between align-items-center flex-wrap gap-2">
-
-        <!-- Left buttons -->
-        <div class="d-flex gap-2">
-            <button type="submit" class="btn btn-primary" id="cusSave"><i class="bi bi-person-plus-fill"></i> Save </button>
-            <button type="submit" class="btn btn-success" id="cusUpdate"><i class="bi bi-arrow-clockwise"></i> Update </button>
-            <button type="submit" class="btn btn-danger" id="cusDelete"><i class="bi bi-trash-fill"></i> Delete </button>
+    <form class="row g-3 m-5">
+        <div class="col-md-6">
+            <label for="inputName" class="form-label">Name</label>
+            <input type="text" class="form-control" id="inputName" placeholder="Test">
+        </div>
+        <div class="col-md-6">
+            <label for="inputContact" class="form-label">Phone</label>
+            <input type="number" class="form-control" id="inputContact" placeholder="0771234567">
+        </div>
+        <div class="col-12">
+            <label for="inputEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="inputEmail" placeholder="Test@gmail.com">
+        </div>
+        <div class="col-12">
+            <label for="inputAddress" class="form-label">Address</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="Galle">
         </div>
 
-        <!-- Right Search Bar -->
-        <div class="input-group" style="max-width: 500px;">
-            <input type="text" class="form-control" placeholder="Search customer..." id="cusSearchInput">
-            <button class="btn btn-primary" type="button" id="cusSearch"><i class="bi bi-search"></i> Search</button>
+        <div class="col-12 d-flex justify-content-between align-items-center flex-wrap gap-2">
+
+            <!-- Left buttons -->
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary" id="cusSave"><i class="bi bi-person-plus-fill"></i> Save </button>
+                <button type="submit" class="btn btn-success" id="cusUpdate"><i class="bi bi-arrow-clockwise"></i> Update </button>
+                <button type="submit" class="btn btn-danger" id="cusDelete"><i class="bi bi-trash-fill"></i> Delete </button>
+            </div>
+
+            <!-- Right Search Bar -->
+            <div class="input-group" style="max-width: 500px;">
+                <input type="text" class="form-control" placeholder="Search customer..." id="cusSearchInput">
+                <button class="btn btn-primary" type="button" id="cusSearch"><i class="bi bi-search"></i> Search</button>
+            </div>
         </div>
-    </div>
-</form>
+    </form>
 
-<!--=================================== Customer Table =============================================-->
+    <!--=================================== Customer Table =============================================-->
 
-<table class="table m-5">
-    <thead>
-    <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Name</th>
-        <th scope="col">Phone</th>
-        <th scope="col">Email</th>
-        <th scope="col">Address</th>
-    </tr>
-    </thead>
-    <tbody id="cusTable"></tbody>
-</table>
+    <table class="table m-5">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Email</th>
+            <th scope="col">Address</th>
+        </tr>
+        </thead>
+        <tbody id="cusTable"></tbody>
+    </table>
 
+</section>
+
+<section id="ItemPage" style="display: none">
+    <!--================================== Item Form ======================================-->
+
+    <form class="row g-3 m-5">
+        <div class="col-md-6">
+            <label for="itemName" class="form-label">Item Name</label>
+            <input type="text" class="form-control" id="itemName" placeholder="Test">
+        </div>
+        <div class="col-md-6">
+            <label for="inputPrice" class="form-label">Price</label>
+            <input type="number" class="form-control" id="inputPrice" placeholder="Rs.xxxx">
+        </div>
+        <div class="col-12">
+            <label for="inputQuantity" class="form-label">Quantity</label>
+            <input type="email" class="form-control" id="inputQuantity" placeholder="xx">
+        </div>
+        <div class="col-12">
+            <label for="inputDes" class="form-label">Description</label>
+            <input type="text" class="form-control" id="inputDes" placeholder="Test">
+        </div>
+
+        <div class="col-12 d-flex justify-content-between align-items-center flex-wrap gap-2">
+
+            <!-- Left buttons -->
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary" id="itemSave"><i class="bi bi-person-plus-fill"></i> Save </button>
+                <button type="submit" class="btn btn-success" id="itemUpdate"><i class="bi bi-arrow-clockwise"></i> Update </button>
+                <button type="submit" class="btn btn-danger" id="itemDelete"><i class="bi bi-trash-fill"></i> Delete </button>
+            </div>
+
+            <!-- Right Search Bar -->
+            <div class="input-group" style="max-width: 500px;">
+                <input type="text" class="form-control" placeholder="Search Item..." id="itemSearchInput">
+                <button class="btn btn-primary" type="button" id="itemSearch"><i class="bi bi-search"></i> Search</button>
+            </div>
+        </div>
+    </form>
+
+    <!--=================================== Item Table =============================================-->
+
+    <table class="table m-5">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Item Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Description</th>
+        </tr>
+        </thead>
+        <tbody id="itemTable"></tbody>
+    </table>
+
+</section>
 
 
 

@@ -1,0 +1,6 @@
+#navDashboard:hover,
+#navCustomer:hover,
+#navItem:hover,
+#navOrder:hover {
+    background-color: deeppink;
+}
