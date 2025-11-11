@@ -8,29 +8,30 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="style.css">
 
-
 </head>
 <body>
 
 <!--================================== Navigation Bar ======================================-->
+<section id="navigationBar">
 
-<ul class="nav p-3" style="background-color: hotpink">
-    <li class="nav-item">
-        <a class="nav-link active text-white " aria-current="page" href="#" id="navDashboard"><img src="assest/images/dashboardimg.png" alt="dashboard" width="20px"> Dashboard</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-white " href="#" id="navCustomer" ><img src="assest/images/customerimg.png" alt="customer" width="20px"> Customer</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-white" href="#" id="navItem"><img src="assest/images/itemimg.png" alt="item" width="20px"> Item</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-white " href="#" id="navOrder"><img src="assest/images/orderimg.png" alt="order" width="20px"> Order</a>
-    </li>
-</ul>
+    <ul class="nav p-3" style="background-color: hotpink">
+        <li class="nav-item">
+            <a class="nav-link active text-white " aria-current="page" href="#" id="navDashboard"><img src="assest/images/dashboardimg.png" alt="dashboard" width="20px"> Dashboard</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white " href="#" id="navCustomer" ><img src="assest/images/customerimg.png" alt="customer" width="20px"> Customer</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white" href="#" id="navItem"><img src="assest/images/itemimg.png" alt="item" width="20px"> Item</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white " href="#" id="navOrder"><img src="assest/images/orderimg.png" alt="order" width="20px"> Order</a>
+        </li>
+    </ul>
+</section>
 
+<!--================================== Customer Form ======================================-->
 <section id="CustomerPage" style="display: none">
-    <!--================================== Customer Form ======================================-->
 
     <form class="row g-3 m-5">
         <div class="col-md-6">
@@ -84,8 +85,8 @@
 
 </section>
 
+<!--================================== Item Form ======================================-->
 <section id="ItemPage" style="display: none">
-    <!--================================== Item Form ======================================-->
 
     <form class="row g-3 m-5">
         <div class="col-md-6">
@@ -138,6 +139,10 @@
     </table>
 
 </section>
+
+
+
+
 
 
 
