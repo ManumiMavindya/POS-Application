@@ -133,6 +133,7 @@ $(document).on("click", "#cusDelete", function() {
         showCancelButton: true,
         confirmButtonText: 'Yes, delete it!',
         cancelButtonText: 'Cancel'
+
     }).then((result) => {
         if (result.isConfirmed) {
             customerDB.splice(customerDB.findIndex(c => c.getId() === id), 1);
@@ -141,5 +142,44 @@ $(document).on("click", "#cusDelete", function() {
         }
         $('#inputName, #inputContact, #inputEmail, #inputAddress').val('');
 
+    });
+});
+
+// ============================== Search Customer ==============================
+
+$(document).on("click", "#cusSearch", function() {
+    let searchText = $('#cusSearchInput').val().trim().toLowerCase();
+
+    if (searchText === "") {
+        loadTable(); // reload full table if search box is empty
+        return;
+    }
+
+    $('#cusTable').empty(); // clear current table
+
+    let filteredCustomers = customerDB.filter(c =>
+        c.getId().toLowerCase().includes(searchText) ||
+        c.getName().toLowerCase().includes(searchText) ||
+        c.getPhone().toLowerCase().includes(searchText) ||
+        c.getEmail().toLowerCase().includes(searchText) ||
+        c.getAddress().toLowerCase().includes(searchText)
+    );
+
+    if (filteredCustomers.length === 0) {
+        $('#cusTable').append('<tr><td colspan="5" class="text-center">No customers found</td></tr>');
+        return;
+    }
+
+    filteredCustomers.forEach(cus => {
+        let row = `
+            <tr>
+                <td>${cus.getId()}</td>
+                <td>${cus.getName()}</td>
+                <td>${cus.getPhone()}</td>
+                <td>${cus.getEmail()}</td>
+                <td>${cus.getAddress()}</td>
+            </tr>
+        `;
+        $('#cusTable').append(row);
     });
 });
