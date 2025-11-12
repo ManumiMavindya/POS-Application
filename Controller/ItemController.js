@@ -74,6 +74,7 @@ $(document).on("click", "#itemSave", function (){
 
     loadItemTable();
     populateItemSelect();
+    updateDashboard();
     /*========== Clear text fields ============*/
     $('#inputItemName, #inputPrice, #inputQuantity, #inputDes').val('');
 
@@ -126,6 +127,7 @@ $(document).on("click", "#itemUpdate", function() {
     Swal.fire('Updated!', 'item details updated.', 'success');
     loadItemTable();
     populateItemSelect();
+    updateDashboard();
     $('#inputItemName, #inputPrice, #inputQuantity, #inputDes').val('');
     selectedItemId = undefined;
 
@@ -149,6 +151,7 @@ $(document).on("click", "#itemDelete", function() {
         if (result.isConfirmed) {
             itemDB.splice(itemDB.findIndex(c => c.getId() === id), 1);
             loadItemTable();
+            updateDashboard();
             Swal.fire('Deleted!', 'Item has been deleted.', 'success');
         }
         $('#inputItemName, #inputPrice, #inputQuantity, #inputDes').val('');

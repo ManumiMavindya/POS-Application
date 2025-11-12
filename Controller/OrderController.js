@@ -85,6 +85,7 @@ $("#btnSaveOrder").click(function() {
 
     loadOrderTable();
     showPreviewOrder();
+    updateDashboard();
 
     Swal.fire({
         title: "Saved!",
@@ -113,6 +114,7 @@ $("#btnCancelOrder").click(function() {
     }
     orderDB.pop();
     loadOrderTable();
+
     $(".card-body").html(`<p class="text-muted">No current order.</p>`);
 });
 

@@ -74,6 +74,8 @@ $(document).on("click", "#cusSave", function (){
 
     loadTable();
     populateCustomerSelect();
+    updateDashboard();
+
     /*========== Clear text fields ============*/
     $('#inputName, #inputContact, #inputEmail, #inputAddress').val('');
 
@@ -127,6 +129,7 @@ $(document).on("click", "#cusUpdate", function() {
     Swal.fire('Updated!', 'Customer details updated.', 'success');
     loadTable();
     populateCustomerSelect();
+    updateDashboard();
     $('#inputName, #inputContact, #inputEmail, #inputAddress').val('');
     selectedCustomerId = undefined;
 
@@ -150,6 +153,7 @@ $(document).on("click", "#cusDelete", function() {
         if (result.isConfirmed) {
             customerDB.splice(customerDB.findIndex(c => c.getId() === id), 1);
             loadTable();
+            updateDashboard();
             Swal.fire('Deleted!', 'Customer has been deleted.', 'success');
         }
         $('#inputName, #inputContact, #inputEmail, #inputAddress').val('');
