@@ -1,6 +1,15 @@
 import {customerDB} from "../DB/CustomerDB.js";
 import {CustomerDTO} from "../DTO/CustomerDTO.js";
 
+function populateCustomerSelect() {
+    const select = $("select[aria-label='Select Customer']");
+    select.empty();
+    select.append(`<option selected>Select Customer</option>`);
+
+    customerDB.forEach(cust => {
+        select.append(`<option value="${cust.getId()}">${cust.getName()}</option>`);
+    });
+}
 // ============================== Generate Customer ID ================================================
 
 const generateId = () => {
@@ -64,8 +73,10 @@ $(document).on("click", "#cusSave", function (){
     });
 
     loadTable();
+    populateCustomerSelect();
     /*========== Clear text fields ============*/
     $('#inputName, #inputContact, #inputEmail, #inputAddress').val('');
+
 
 
 });
@@ -115,9 +126,11 @@ $(document).on("click", "#cusUpdate", function() {
 
     Swal.fire('Updated!', 'Customer details updated.', 'success');
     loadTable();
-
+    populateCustomerSelect();
     $('#inputName, #inputContact, #inputEmail, #inputAddress').val('');
     selectedCustomerId = undefined;
+
+
 });
 
 // ============================== Delete Customer ========================================================

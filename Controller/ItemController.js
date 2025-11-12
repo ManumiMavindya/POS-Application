@@ -1,6 +1,15 @@
 import {itemDB} from "../DB/ItemDB.js";
 import {ItemDTO} from "../DTO/ItemDTO.js";
 
+function populateItemSelect() {
+    const select = $("select[aria-label='Select Item']");
+    select.empty();
+    select.append(`<option selected>Select Item</option>`);
+
+    itemDB.forEach(item => {
+        select.append(`<option value="${item.getId()}">${item.getItemName()}</option>`);
+    });
+}
 // ============================== Generate Item ID ================================================
 
 const generateItemId = () => {
@@ -64,6 +73,7 @@ $(document).on("click", "#itemSave", function (){
     });
 
     loadItemTable();
+    populateItemSelect();
     /*========== Clear text fields ============*/
     $('#inputItemName, #inputPrice, #inputQuantity, #inputDes').val('');
 
@@ -115,9 +125,11 @@ $(document).on("click", "#itemUpdate", function() {
 
     Swal.fire('Updated!', 'item details updated.', 'success');
     loadItemTable();
-
+    populateItemSelect();
     $('#inputItemName, #inputPrice, #inputQuantity, #inputDes').val('');
     selectedItemId = undefined;
+
+
 });
 
 // ============================== Delete Item ========================================================

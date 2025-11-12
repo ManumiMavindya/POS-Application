@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>POS-Application</title>
+    <link rel="icon" href="assest/images/logoimg.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
@@ -11,27 +12,139 @@
 </head>
 <body>
 
+<!--================================== Login Page======================================-->
+<div id="LoginPage" class="login-container">
+    <div class="login-card">
+        <div class="text-center mb-4">
+            <h2 class="fw-bold" style="color:hotpink;">POS System</h2>
+            <p class="text-muted">Sign in to your account</p>
+        </div>
+        <form id="login-form">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" placeholder="Enter username" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter password" required>
+            </div>
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary" id="signInBtn">Sign In</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 <!--================================== Navigation Bar ======================================-->
 <section id="navigationBar">
+    <ul class="nav p-3 align-items-center justify-content-between" style="background-color: hotpink;">
 
-    <ul class="nav p-3" style="background-color: hotpink">
-        <li class="nav-item">
-            <a class="nav-link active text-white " aria-current="page" href="#" id="navDashboard"><img src="assest/images/dashboardimg.png" alt="dashboard" width="20px"> Dashboard</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-white " href="#" id="navCustomer" ><img src="assest/images/customerimg.png" alt="customer" width="20px"> Customer</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-white" href="#" id="navItem"><img src="assest/images/itemimg.png" alt="item" width="20px"> Item</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-white " href="#" id="navOrder"><img src="assest/images/orderimg.png" alt="order" width="20px"> Order</a>
-        </li>
+        <!-- Left side (Logo + Nav links) -->
+        <div class="d-flex align-items-center gap-3">
+            <!-- Logo -->
+            <img src="assest/images/logoimg.png" alt="POS Logo" width="50px" height="50px" class="rounded-circle">
+
+            <!-- Nav links -->
+            <li class="nav-item">
+                <a class="nav-link active text-white" href="#" id="navDashboard">
+                    <img src="assest/images/dashboardimg.png" alt="dashboard" width="20px">
+                    Dashboard
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="#" id="navCustomer">
+                    <img src="assest/images/customerimg.png" alt="customer" width="20px">
+                    Customer
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="#" id="navItem">
+                    <img src="assest/images/itemimg.png" alt="item" width="20px">
+                    Item
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="#" id="navOrder">
+                    <img src="assest/images/orderimg.png" alt="order" width="20px">
+                    Order
+                </a>
+            </li>
+        </div>
+
+        <!-- Right side (Logout button) -->
+        <div class="nav-item">
+            <button id="logoutBtn" class="btn btn-light">
+                <img src="assest/images/logoutimg.png" alt="logout" width="20px">
+                Logout
+            </button>
+        </div>
+
     </ul>
 </section>
 
 <!--================================== Dashboard ======================================-->
-<section id="Dashboard"></section>
+<section id="Dashboard">
+    <div class="card" style="max-width: 18rem;">
+
+        <div class="card-body">
+            <h5 class="card-title">Total Orders</h5>
+            <p id="totalOrders" class="card-text">13</p>
+        </div>
+    </div>
+
+    <div class="card" style="max-width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Total Customers</h5>
+            <p id="totalCustomers" class="card-text">5</p>
+        </div>
+    </div>
+
+    <div class="card" style="max-width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Total Items</h5>
+            <p id="totalItems" class="card-text">89</p>
+        </div>
+    </div>
+
+    <div class="card" style="max-width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Total Revenue</h5>
+            <p id="totalRevenue class="card-text">$45,500</p>
+        </div>
+    </div>
+
+    <h2>Recently Orders</h2>
+    <table class="table ">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>John</td>
+            <td>Doe</td>
+            <td>@social</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
 
 <!--================================== Customer Page ======================================-->
 <section id="CustomerPage" style="display: none">
@@ -143,9 +256,64 @@
 
 </section>
 
+<!--================================== Order Page ======================================-->
+<section id="OrderPage" class="p-4">
+    <div class="row">
 
+        <!-- LEFT SIDE -->
+        <div class="col-lg-8 col-md-7">
+            <!-- Search Bar -->
+            <div class="d-flex align-items-center gap-2 mb-3">
+                <input type="text" class="form-control" placeholder="Search Order..." style="width: 250px;">
+                <button class="btn btn-primary">Search</button>
+            </div>
 
+            <!-- Select Customer & Item -->
+            <div class="d-flex gap-3 mb-3">
+                <select class="form-select" aria-label="Select Customer">
+                    <option selected>Select Customer</option>
+                </select>
 
+                <select class="form-select" aria-label="Select Item">
+                    <option selected>Select Item</option>
+                </select>
+            </div>
+
+            <!-- Orders Table -->
+            <table class="table ">
+                <thead class="table">
+                <tr>
+                    <th>ID</th>
+                    <th>Customer Name</th>
+                    <th>Item</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                </tr>
+                </thead>
+                <tbody id="orderTable"></tbody>
+            </table>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="col-lg-4 col-md-5">
+            <h3 class="fw-bold mb-3 text-center">Current Order Details</h3>
+            <div class="card">
+                <div class="card-body">
+                    <hr>
+                    <ul class="mb-2">
+                    </ul>
+                    <hr>
+                </div>
+            </div>
+            <div class="d-flex gap-2 mt-3">
+                <button id="btnSaveOrder" class="btn btn-success flex-fill"><img src="assest/images/confirmimg.png" width="20px"> Complete Order</button>
+                <button id="btnCancelOrder" class="btn btn-danger flex-fill"><img src="assest/images/cancelimg.png" width="20px"> Cancel Order</button>
+            </div>
+
+        </div>
+
+    </div>
+</section>
 
 
 
@@ -158,6 +326,11 @@
 <script src="script.js"></script>
 <script type="module" src="Controller/CustomerController.js"></script>
 <script type="module" src="Controller/ItemController.js"></script>
+<script type="module" src="Controller/OrderController.js"></script>
+<script type="module" src="Controller/LoginController.js"></script>
+<script type="module" src="Controller/LogoutController.js"></script>
+<script type="module" src="Controller/DashboardController.js"></script>
+
 
 </body>
 </html>

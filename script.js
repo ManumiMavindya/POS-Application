@@ -1,25 +1,34 @@
-$(document).ready(function() {
+ $(document).ready(function() {
+
+    // Dashboard page (optional, you can create a section for it)
+    $('#navDashboard').click(function(e) {
+        e.preventDefault();
+        $('#Dashboard').show();
+        $('#CustomerPage, #ItemPage, #OrderPage').hide();
+
+    });
 
     // Show Customer page
     $('#navCustomer').click(function(e) {
         e.preventDefault();
         $('#CustomerPage').show();
-        $('#ItemPage').hide();
+        $('#ItemPage, #Dashboard, #OrderPage').hide();
     });
 
     // Show Item page
     $('#navItem').click(function(e) {
         e.preventDefault();
         $('#ItemPage').show();
-        $('#CustomerPage').hide();
+        $('#CustomerPage, #OrderPage, #Dashboard').hide();
     });
 
-    // Dashboard page (optional, you can create a section for it)
-    $('#navDashboard').click(function(e) {
+    // Show Order page
+    $('#navOrder').click(function(e) {
         e.preventDefault();
-        $('#CustomerPage, #ItemPage').hide();
-        alert("Dashboard page can be added here"); // temporary
+        $('#OrderPage').show();
+        $('#CustomerPage, #Dashboard, #ItemPage').hide();
     });
+
 
     // Highlight active nav link
     $('.nav-link').click(function() {

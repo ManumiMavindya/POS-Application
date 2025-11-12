@@ -1,6 +1,124 @@
 #navDashboard:hover,
 #navCustomer:hover,
 #navItem:hover,
-#navOrder:hover {
+#navOrder:hover,
+#logoutBtn:hover{
     background-color: deeppink;
+    border-radius: 10px;
 }
+
+.login-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, deeppink,hotpink);
+}
+
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    background-color: white;
+}
+#LoginPage button{
+    background-color: deeppink;
+    border-color: deeppink;
+}
+
+#Dashboard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin: 40px 0;
+    padding: 40px 0;
+
+}
+#Dashboard .card {
+    width: 18rem;
+    color: white;
+    transition: transform 0.2s ease-in-out;
+    border-radius: 10px;
+}
+#Dashboard .card-body p{
+    font-size: 20px;
+}
+#Dashboard .card-body{
+    background-color: deeppink;
+    border-radius: 10px;
+}
+
+#Dashboard .card:hover {
+    transform: scale(1.05);
+}
+
+#OrderPage{
+    margin-top: 50px;
+    margin-right: 30px;
+    margin-left: 30px;
+}
+.form-select{
+    width: 800px;
+    margin-bottom: 20px;
+}
+#OrderPage .input-group{
+    width: 800px;
+}
+#OrderPage table{
+    width: 800px;
+}
+#OrderPage h3{
+    display: flex;
+}
+#logoutBtn{
+    background-color: hotpink;
+    border-color: hotpink;
+    color: white;
+}
+
+#navigationBar {
+    background-color: hotpink;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    padding: 8px 40px; /* Add top-bottom + left-right padding */
+}
+
+/* Logo */
+#navigationBar img[alt="POS Logo"] {
+    margin-right: 25px;
+}
+
+/* Nav links spacing */
+#navigationBar .nav-item {
+    margin-right: 20px;
+}
+
+/* Nav links hover & active state */
+#navigationBar .nav-link {
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+#navigationBar .nav-link:hover {
+    transform: scale(1.05);
+    color: #fff8f8;
+}
+
+/* Logout button on right side */
+#logoutBtn {
+    margin-right: 10px;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+#logoutBtn:hover {
+    background-color: #ff4da6;
+    color: white;
+    transform: scale(1.05);
+}
+
